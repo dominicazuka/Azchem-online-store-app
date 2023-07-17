@@ -6,13 +6,13 @@ The application is still under development, but it is already functional and can
 
 Here are some of the features of the Azchem-online-store-app:
 
-Simple user interface 
-1. Search feature
-2. Ability to browse products by name or category
-3. Ability to add products to cart
-4. Ability to checkout
-5. Here are some of the technologies that are used in the Azchem-online-store-app:
+1. Simple user interface 
+2. Search feature
+3. Ability to browse products by name or category
+4. Ability to add products to cart
+5. Ability to checkout
 
+Here are some of the technologies that are used in the Azchem-online-store-app:
 1. React
 2. Node.js
 3. Express
