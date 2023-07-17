@@ -1,0 +1,27 @@
+{
+  "name": "azchemshop",
+  "version": "1.0.0",
+  "description": "Azchem-online-store-app backend is a server side  web application that handles all business logic and requests from the client side of the application for products from Azchem, a fictional company that sells chemicals. The application is built using React and Node.js, and it uses a RESTful API to communicate with the back-end.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Flavors",
+    "Preservatives",
+    "Confectionery",
+    "Fats",
+    "and",
+    "Butter",
+    "Additives",
+    "e.t.c"
+  ],
+  "author": "Dominic Azuka",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
