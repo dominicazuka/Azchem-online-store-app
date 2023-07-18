@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-require("dotenv/config"); //read env variables  from .env file
+const dotenv = require("dotenv");
+dotenv.config(); //read env variables  from .env file
 
 //Middleware configuration
 app.use(express.json());
