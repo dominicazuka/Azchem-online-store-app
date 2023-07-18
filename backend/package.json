@@ -1,7 +1,7 @@
 {
   "name": "azchemshop",
   "version": "1.0.0",
-  "description": "Azchem-online-store-app backend is a server side  web application that handles all business logic and requests from the client side of the application for products from Azchem, a fictional company that sells chemicals. The application is built using React and Node.js, and it uses a RESTful API to communicate with the back-end.",
+  "description": "Azchem-online-store-app backend is a server side that handles all business logic and requests from the client side of the application for products from Azchem, a fictional company that sells chemicals. The application is built using React Native and Node.js, and it uses a RESTful API to communicate with the back-end.",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
