@@ -4,66 +4,28 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config(); //read env variables  from .env file
+const cors = require("cors"); 
+
+app.use(cors());
+app.options('*', cors()) //would later modify to a specific api domain
 
 //Middleware configuration
 app.use(express.json());
 app.use(morgan("tiny"));
 
+//Route configuration
+const categoriesRoute = require('./routes/categories')
+const productsRoute = require('./routes/products')
+const usersRoute = require('./routes/users')
+const ordersRoute = require('./routes/orders')
+
 // http://localhost:3000/api/v1/
 const api = process.env.API_URL;
 
-const productSchema = mongoose.Schema({
-  name: String,
-  image: String,
-  stock: {
-    type: Number,
-    required: true,
-  },
-});
-
-const Product = mongoose.model("Product", productSchema);
-
-app.post(`${api}/products`, (req, res) => {
-  const product = new Product({
-    name: req.body.name,
-    image: req.body.image,
-    stock: req.body.stock,
-  });
-  product
-    .save()
-    .then((createdProduct) => {
-      res.status(201).json(createdProduct);
-    })
-    .catch((error) => {
-      res.status(500).json({ message: error.message });
-    });
-  console.log(product);
-});
-
-app.get(`${api}/products`, async (req, res) => {
-  const allProducts = await Product.find();
-
-  if (!allProducts) {
-    res.status(500).json({ success: false });
-  }
-  res.send(allProducts);
-});
-
-app.get(`${api}/users`, (req, res) => {
-  const user = {
-    id: 1,
-    name: "John",
-    image: "test.jpg",
-  };
-
-  res.send(user);
-});
-
-app.post(`${api}/users`, (req, res) => {
-  const newUser = req.body;
-  console.log(newUser);
-  res.send(newUser);
-});
+app.use(`${api}/categories`, categoriesRoute);
+app.use(`${api}/products`, productsRoute);
+app.use(`${api}/users`, usersRoute);
+app.use(`${api}/orders`, ordersRoute);
 
 //Connect the database
 mongoose
