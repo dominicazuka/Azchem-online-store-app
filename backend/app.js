@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config(); //read env variables  from .env file
 const cors = require("cors"); 
+const authJwt = require("./helpers/jwt");
+const errorHandler = require("./helpers/error-handler");
 
 app.use(cors());
 app.options('*', cors()) //would later modify to a specific api domain
@@ -12,12 +14,14 @@ app.options('*', cors()) //would later modify to a specific api domain
 //Middleware configuration
 app.use(express.json());
 app.use(morgan("tiny"));
+app.use(authJwt());
+app.use(errorHandler)
 
-//Route configuration
+//Route configuration'
 const categoriesRoute = require('./routes/categories')
 const productsRoute = require('./routes/products')
 const usersRoute = require('./routes/users')
-const ordersRoute = require('./routes/orders')
+const ordersRoute = require('./routes/orders');
 
 // http://localhost:3000/api/v1/
 const api = process.env.API_URL;
