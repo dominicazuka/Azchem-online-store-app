@@ -45,7 +45,23 @@ router.post("/", async (req, res) => {
       })
     );
     const orderItemsResolved = await orderItemsIds;
+
+    const totalPrices = await Promise.all(
+      orderItemsResolved.map(async (orderItemId) => {
+        const orderItem = await OrderItem.findById(orderItemId).populate(
+          "product",
+          "price"
+        );
+        const totalPrice = orderItem.product.price * orderItem.quantity;
+        return totalPrice;
+      })
+    );
+
+    const totalPrice = totalPrices.reduce((a, b) => a + b, 0);
+
     console.log("orderItemsResolved>>>  ", orderItemsResolved);
+    console.log("totalPrice>>> ", totalPrices);
+
     let order = new Order({
       orderItems: orderItemsResolved,
       shippingAddress1: req.body.shippingAddress1,
@@ -55,7 +71,7 @@ router.post("/", async (req, res) => {
       country: req.body.country,
       phone: req.body.phone,
       status: req.body.status,
-      totalPrice: req.body.totalPrice,
+      totalPrice: totalPrice,
       user: req.body.user,
       shippingMethod: req.body.shippingMethod,
       trackingNumber: req.body.trackingNumber,
@@ -116,13 +132,58 @@ router.delete("/:id", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Sorry an error occurred, please try again.",
-      });
+    res.status(500).json({
+      success: false,
+      message: "Sorry an error occurred, please try again.",
+    });
   }
 });
 
+// total sales for admin dashboard
+
+router.get("/get/totalsales", async (req, res) => {
+  const totalSales = await Order.aggregate([
+    { $group: { _id: null, totalsales: { $sum: "$totalPrice" } } },
+  ]);
+  if (!totalSales) {
+    return res.status(400).send("The order cannot be generated");
+  }
+  res.send({ totalsales: totalSales.pop().totalsales });
+});
+
+// Return order count for statistics
+router.get("/get/count", async (req, res) => {
+  try {
+    const orderCount = await Order.countDocuments();
+    if (!orderCount) {
+      res.status(500).json({ success: false });
+    }
+    res.send({
+      orderCount: orderCount,
+    });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ message: "Sorry an error occurred, please try again." });
+  }
+});
+
+//Get order history for user
+router.get("/get/userorders/:userid", async (req, res) => {
+  try {
+    const userOrderList = await Order.find({user: req.params.userid}).populate({path: 'orderItems', populate:{
+      path:'product', populate:'category'
+    }}).sort({'dateOrdered': -1})
+    if (!userOrderList) {
+      res.status(500).json({ success: false });
+    }
+    res.send(userOrderList);
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ message: "Sorry an error occurred, please try again." });
+  }
+});
 module.exports = router;

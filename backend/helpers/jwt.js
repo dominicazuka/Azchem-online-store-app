@@ -9,6 +9,7 @@ const authJwt = ()=>{
         isRevoked : isRevoked, //verify if user is Admin
     }).unless({
         path: [
+            {url: /\/public\/uploads(.*)/, methods: ['GET', 'OPTIONS']}, //regular expression to handle images api path
             {url: /\/api\/v1\/products(.*)/, methods: ['GET', 'OPTIONS']}, //regular expression to handle anything after product api path
             {url: /\/api\/v1\/categories(.*)/, methods: ['GET', 'OPTIONS']}, //regular expression to handle anything after category api path
             `${api}/users/login`,
