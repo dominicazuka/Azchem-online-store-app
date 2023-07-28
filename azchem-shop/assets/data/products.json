@@ -1,0 +1,262 @@
+[
+    {
+        "_id": "64b7d2a8435ed545ea9b8123",
+        "name": "Browning",
+        "description": "A food coloring and flavoring agent used to give baked goods a browned appearance.",
+        "richDescription": "Our browning is made from natural ingredients, and it's perfect for adding a touch of brown to your baked goods. It's also a great way to add flavor to your favorite dishes.",
+        "image": "https://i.ibb.co/dKNQgkW/333238926-215010467707671-6740853910715535731-n-Background-Removed.png",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/8/8f/Blackstrapmolasses.JPG", "https://bsgcraftbrewing.com/wp-content/uploads/2021/11/0001583_blackstrap-molasses-59lb-pail_550.jpeg"],
+        "brand": "Azchem",
+        "price": 2.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "1 oz",
+            "minStock": 30
+          },
+          {
+            "size": "4 oz",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.5,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8124",
+        "name": "Golden Syrup",
+        "description": "A thick, golden-colored syrup made from sugar.",
+        "richDescription": "Our golden syrup is made from pure cane sugar, and it's perfect for adding a touch of sweetness to your favorite baked goods. It's also a great way to add flavor to your favorite dishes.",
+        "image": "https://i.ibb.co/kgCWHKm/333057823-745240500301492-6489902685274192339-n-Background-Removed.png",
+        "images": ["https://www.daringgourmet.com/wp-content/uploads/2020/04/Golden-Syrup-3-square.jpg", "https://1.bp.blogspot.com/_Z_Us2xEQ9t8/Sx9pdPNj2iI/AAAAAAAAGuk/yK5aMDDqRSk/sugarsyrupIMG_0683dppcs3whtw.jpg"],
+        "brand": "Azchem",
+        "price": 4.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "12 oz",
+            "minStock": 30
+          },
+          {
+            "size": "1 gallon",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.2,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 500
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8125",
+        "name": "Banana Flavor",
+        "description": "A natural banana flavor extract that can be used in baking, candy making, and other recipes.",
+        "richDescription": "Our banana flavor is made from real bananas, and it's perfect for adding a touch of banana flavor to your favorite dishes. It's also a great way to make your own banana bread or banana muffins.",
+        "image": "https://i.ibb.co/QN4HrLS/1-Background-Removed-Medium.png",
+        "images": ["https://www.tastingtable.com/img/gallery/why-artificial-banana-flavor-doesnt-taste-like-the-real-thing/l-intro-1660147847.jpg", "https://4.imimg.com/data4/IT/NT/MY-12789705/1-500x500.jpg"],
+        "brand": "Azchem",
+        "price": 3.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "1 oz",
+            "minStock": 30
+          },
+          {
+            "size": "4 oz",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.3,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8126",
+        "name": "Milk Flavor",
+        "description": "A natural milk flavor extract that can be used in baking, candy making, and other recipes.",
+        "richDescription": "Our milk flavor is made from real milk, and it's perfect for adding a touch of milky flavor to your favorite dishes. It's also a great way to make your own ice cream or milkshakes.",
+        "image": "https://i.ibb.co/nBWr3YH/9-Background-Removed-Medium.png",
+        "images": ["https://cdn.store-factory.com/www.culinaide.com/content/product_4801045b.jpg?v=1597660182", "https://www.silverson.com/images/uploads/general/hero-flavd-milk.jpg"],
+        "brand": "Azchem",
+        "price": 3.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "1 oz",
+            "minStock": 30
+          },
+          {
+            "size": "4 oz",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.4,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8127",
+        "name": "Cocoa Powder",
+        "description": "A fine, unsweetened powder made from roasted cacao beans.",
+        "richDescription": "Our cocoa powder is made from 100% pure cacao beans, and it's perfect for adding a touch of chocolate flavor to your favorite dishes. It's also a great way to make your own hot chocolate or chocolate ganache.",
+        "image": "https://i.ibb.co/RBmGBrZ/8-Background-Removed-Medium.png",
+        "images": ["https://www.washingtonpost.com/resizer/c-GU_31i9HTBADHgb1Al3LiHEUw=/arc-anglerfish-washpost-prod-washpost/public/PNV2QMQFXEI6ZM6EYRRLD3OPZA.jpg", "https://c.ndtvimg.com/2021-05/p003t9p8_cocoa_625x300_20_May_21.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=675"],
+        "brand": "Azchem",
+        "price": 4.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "1 oz",
+            "minStock": 30
+          },
+          {
+            "size": "1 lb",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.5,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8128",
+        "name": "Black Treacle",
+        "description": "A thick, dark-colored syrup made from sugar beets.",
+        "richDescription": "Our black treacle is made from 100% pure sugar beets, and it's perfect for adding a touch of sweetness and depth of flavor to your favorite dishes. It's also a great way to make your own gingerbread or treacle tart.",
+        "image": "https://i.ibb.co/jgMRYpM/4-Background-Removed-Medium.png",
+        "images": ["https://www.ragus.co.uk/wp-content/uploads/2022/09/Black_Treacle_SEO_02_ss_1153780783_670px_wide.jpg", "https://www.ruchikrandhap.com/wp-content/uploads/2020/11/Treacle_2-scaled.jpg"],
+        "brand": "Azchem",
+        "price": 5.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "12 oz",
+            "minStock": 30
+          },
+          {
+            "size": "1 lb",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.6,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8129",
+        "name": "Butterscotch",
+        "description": "A rich, caramel-flavored syrup made from butter and sugar.",
+        "richDescription": "Our butterscotch is made from real butter and sugar, and it's perfect for adding a touch of sweetness and depth of flavor to your favorite dishes. It's also a great way to make your own butterscotch pudding or butterscotch candies.",
+        "image": "https://i.ibb.co/87BGs4M/3-Background-Removed-Medium.png",
+        "images": ["https://www.biggerbolderbaking.com/wp-content/uploads/2018/07/Butterscotch-sauce2.jpg", "https://chopnotch.com/wp-content/uploads/Butterscotch-Candy.jpg"],
+        "brand": "Azchem",
+        "price": 4.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "12 oz",
+            "minStock": 30
+          },
+          {
+            "size": "1 lb",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.7,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8130",
+        "name": "Chocolate Flavor",
+        "description": "A natural chocolate flavor extract that can be used in baking, candy making, and other recipes.",
+        "richDescription": "Our chocolate flavor is made from real cocoa beans, and it's perfect for adding a touch of chocolate flavor to your favorite dishes. It's also a great way to make your own hot chocolate or chocolate ganache.",
+        "image": "https://i.ibb.co/yBTcZwp/2-Background-Removed-Medium.png",
+        "images": ["https://cdn.store-factory.com/www.culinaide.com/content/product_10972459b.png?v=1581425241", "https://www.bickfordflavors.com/cdn/shop/products/chocolate_grande.jpeg?v=1604921429"],
+        "brand": "Azchem",
+        "price": 3.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "1 oz",
+            "minStock": 30
+          },
+          {
+            "size": "4 oz",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.8,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8131",
+        "name": "Strawberry Clear Flavor",
+        "description": "A natural strawberry flavor extract that can be used in baking, candy making, and other recipes.",
+        "richDescription": "Our strawberry clear flavor is made from real strawberries, and it's perfect for adding a touch of strawberry flavor to your favorite dishes. It's also a great way to make your own strawberry shortcake or strawberry ice cream.",
+        "image": "https://i.ibb.co/GsjsF0R/11-Background-Removed-Medium.png",
+        "images": ["https://images.squarespace-cdn.com/content/v1/5a2ea45ff6576e9201a1844b/1617219572337-H68RUMUZVGTEA2X9VJIK/A15+Clear+Strawberry+2.jpeg", "https://images.squarespace-cdn.com/content/v1/5a2ea45ff6576e9201a1844b/1671164207070-XFUT0IEG9SYTDWL44K8L/IMG_2898.jpg?format=1000w"],
+        "brand": "Azchem",
+        "price": 3.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "1 oz",
+            "minStock": 30
+          },
+          {
+            "size": "4 oz",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.8,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      },
+      {
+        "_id": "64b7d2a8435ed545ea9b8132",
+        "name": "Milk Emulsion Flavor",
+        "description": "A clear, milky-flavored liquid that can be used in baking, candy making, and other recipes.",
+        "richDescription": "Our milk emulsion flavor is made from real milk, and it's perfect for adding a touch of milky flavor to your favorite dishes. It's also a great way to make your own ice cream or milkshakes.",
+        "image": "https://i.ibb.co/C98d94P/IMG-2313-scaled-1-Background-Removed-Medium.png",
+        "images": ["https://s.alicdn.com/@sc04/kf/H8c7541f418154317b3be55e3e5336b95h.jpg_300x300.jpg", "https://www.flavoursogood.com/Uploads/image/20200606/1591444018324974.jpg"],
+        "brand": "Azchem",
+        "price": 4.99,
+        "category": "64b719beef90ac0e1c25513e",
+        "stock": 100,
+        "size": [
+          {
+            "size": "1 oz",
+            "minStock": 30
+          },
+          {
+            "size": "4 oz",
+            "minStock": 60
+          }
+        ],
+        "rating": 4.9,
+        "color": "#ffff00",
+        "isFeatured": true,
+        "numReviews": 1000
+      }
+]

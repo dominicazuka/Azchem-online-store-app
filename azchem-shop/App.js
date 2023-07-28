@@ -1,11 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+
+//Screens Import
+
+import ProductContainer from './Screens/Products/ProductContainer'
+import Header from './Screens/Shared/Header';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>I just edited my App.js to work!</Text>
-      <StatusBar style="auto" />
+      <Header/>
+      <ProductContainer/>
     </View>
   );
 }
