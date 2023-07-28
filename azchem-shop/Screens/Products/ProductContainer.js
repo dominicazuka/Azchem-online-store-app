@@ -9,6 +9,7 @@ import {
 import { Container, Header, Icon, Text, Item, Input } from "native-base";
 import ProductList from "./ProductList";
 import SearchedProduct from "./SearchedProduct";
+import Banner from "../Shared/Banner";
 
 const data = require("../../assets/data/products.json");
 const ProductContainer = () => {
@@ -64,7 +65,9 @@ const ProductContainer = () => {
         <SearchedProduct productsFiltered={productsFiltered} />
       ) : (
         <View>
-          <Text>Product Container</Text>
+          <View>
+            <Banner/>
+          </View>
           <View style={{ marginTop: 20 }} />
           <FlatList
             data={products}
