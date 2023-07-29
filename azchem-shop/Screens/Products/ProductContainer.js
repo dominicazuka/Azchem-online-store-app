@@ -64,7 +64,7 @@ const ProductContainer = () => {
         ? [setProductsCategory(initialState), setActive(true)]
         : [
             setProductsCategory(
-              products.filter((i) => i.category._id === ctg),
+              products.filter((i) => i.category === ctg),
               setActive(true)
             ),
           ];
@@ -91,7 +91,7 @@ const ProductContainer = () => {
       {focus == true ? (
         <SearchedProduct productsFiltered={productsFiltered} />
       ) : (
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             <View>
               <Banner />
