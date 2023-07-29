@@ -28,6 +28,8 @@ const Banner = () => {
             showButton={false}
             autoplay={true}
             autoplayTimeout={2}
+            dotColor="white" // Set the dot color to white
+            activeDotColor="red" // Set the active dot color to red
           >
             {bannerData.map((item) => {
               return (

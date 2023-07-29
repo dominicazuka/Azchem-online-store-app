@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, LogBox } from 'react-native';
 import ProductContainer from './Screens/Products/ProductContainer'
 import Header from './Screens/Shared/Header';
 
-LogBox.ignoreAllLogs(true) //would enable this before publishing
+// LogBox.ignoreAllLogs(true) //would enable this before publishing
 
 export default function App() {
   return (

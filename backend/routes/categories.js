@@ -47,8 +47,6 @@ router.post("/", async (req, res) => {
   try {
     let category = new Category({
       name: req.body.name,
-      icon: req.body.icon,
-      color: req.body.color,
     });
     category = await category.save();
     if (!category)
@@ -70,8 +68,6 @@ router.put("/:id", async (req, res) => {
     }
     const category = await Category.findByIdAndUpdate(req.params.id, {
       name: req.body.name,
-      icon: req.body.icon,
-      color: req.body.color,
     },
     {new: true}
     );
