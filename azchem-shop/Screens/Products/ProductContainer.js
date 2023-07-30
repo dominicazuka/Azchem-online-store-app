@@ -16,7 +16,7 @@ import CategoryFilter from "./CategoryFilter";
 var { height } = Dimensions.get("window");
 const data = require("../../assets/data/products.json");
 const productCategories = require("../../assets/data/categories.json");
-const ProductContainer = () => {
+const ProductContainer = (props) => {
   const [products, setProducts] = useState([]);
   const [productsFiltered, setProductsFiltered] = useState([]);
   const [focus, setFocus] = useState();
@@ -89,7 +89,10 @@ const ProductContainer = () => {
         </Item>
       </Header>
       {focus == true ? (
-        <SearchedProduct productsFiltered={productsFiltered} />
+        <SearchedProduct
+        navigation={props.navigation}
+        productsFiltered={productsFiltered} 
+        />
       ) : (
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
@@ -108,11 +111,11 @@ const ProductContainer = () => {
             {productsCategory.length > 0 ? (
               <View style={styles.listContainer}>
                 {productsCategory.map((item) => {
-                  return <ProductList key={item._id} item={item} />;
+                  return <ProductList key={item._id} item={item} navigation={props.navigation}/>;
                 })}
               </View>
             ) : (
-              <View style={[styles.center, { height: height / 2 }]}>
+              <View style={[styles.center, { height: 50 }]}>
                 <Text>No products found</Text>
               </View>
             )}
