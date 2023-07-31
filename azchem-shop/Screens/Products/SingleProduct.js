@@ -5,11 +5,14 @@ import {
   StyleSheet,
   Text,
   ScrollView,
-  Button,
 } from "react-native";
 import { Left, Right, Container, H1 } from "native-base";
+import Button from "react-native-button";
+import { connect } from "react-redux";
+import * as actions from "../../Redux/Actions/cartActions";
 
 const SingleProduct = (props) => {
+  console.log(`Single Product`, props);
   const [item, setItem] = useState(props.route.params.item);
   const [availability, setAvailability] = useState("");
 
@@ -38,11 +41,25 @@ const SingleProduct = (props) => {
               <Text style={styles.price}>₦{item.price}</Text>
             </Left>
             <Right>
-              <Button title="Add"/>
+              <Button 
+              containerStyle={styles.buttonContainer}
+              disabledContainerStyle={{ backgroundColor: "grey" }}
+              style={{ fontSize: 20, color: "white" }}
+              onPress={() => {
+                props.addItemToCart(item);
+              }}
+              >Add</Button>
             </Right>
       </View>
     </Container>
   );
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItemToCart: (product) =>
+      dispatch(actions.addToCart({ quantity: 1, product })),
+  };
 };
 
 const styles = StyleSheet.create({
@@ -84,7 +101,23 @@ const styles = StyleSheet.create({
     fontSize: 24,
     margin: 20,
     color: 'red'
-  }
+  },
+  buttonContainer: {
+    marginRight:10,
+    padding: 10,
+    height: 45,
+    overflow: "hidden",
+    borderRadius: 20,
+    backgroundColor: "red",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 7,
+  },
 });
 
-export default SingleProduct;
+export default connect(null, mapDispatchToProps)(SingleProduct);
