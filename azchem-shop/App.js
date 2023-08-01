@@ -19,6 +19,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
+        <StatusBar backgroundColor="red" />
         <Header />
         <Main />
       </NavigationContainer>

@@ -36,7 +36,7 @@ const Payment = (props) => {
 
   return (
     <Container>
-      <Header>
+      <Header style={{ backgroundColor: "red", color: "white" }}>
         <Body>
           <Title>Choose your payment method</Title>
         </Body>

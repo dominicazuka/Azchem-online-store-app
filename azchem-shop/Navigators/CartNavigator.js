@@ -8,7 +8,9 @@ const Stack = createStackNavigator();
 
 function MyStack(){
     return(
-        <Stack.Navigator>
+        <Stack.Navigator  screenOptions={{
+            headerTintColor: 'red', // Set the color of the back button here
+          }}>
             <Stack.Screen 
                 name="Cart"
                 component={Cart}
