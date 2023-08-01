@@ -53,7 +53,7 @@ router.post("/", async (req, res) => {
       return res.status(404).send("The category cannot be created");
     res.send(category);
   } catch (error) {
-    console.log(error);
+    console.log(error); 
     res
       .status(500)
       .json({ message: "Sorry an error occurred, please try again." });

@@ -44,7 +44,14 @@ const Confirm = (props) => {
                       <Text>{x.product.name}</Text>
                     </Left>
                     <Right>
-                      <Text> ₦{x.product.price}</Text>
+                      <Text>
+                        {" "}
+                        {x.product.price.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "NGN",
+                          minimumFractionDigits: 0,
+                        })}
+                      </Text>
                     </Right>
                   </Body>
                 </ListItem>
