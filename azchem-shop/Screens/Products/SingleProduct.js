@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Image,
-  View,
-  StyleSheet,
-  Text,
-  ScrollView,
-} from "react-native";
+import { Image, View, StyleSheet, Text, ScrollView } from "react-native";
 import { Left, Right, Container, H1 } from "native-base";
 import Button from "react-native-button";
 import { connect } from "react-redux";
@@ -37,19 +31,27 @@ const SingleProduct = (props) => {
         {/* Description, rich description and availability*/}
       </ScrollView>
       <View style={styles.bottomContainer}>
-            <Left>
-              <Text style={styles.price}>₦{item.price}</Text>
-            </Left>
-            <Right>
-              <Button 
-              containerStyle={styles.buttonContainer}
-              disabledContainerStyle={{ backgroundColor: "grey" }}
-              style={{ fontSize: 20, color: "white" }}
-              onPress={() => {
-                props.addItemToCart(item);
-              }}
-              >Add</Button>
-            </Right>
+        <Left>
+          <Text style={styles.price}>
+            {item.price.toLocaleString("en-US", {
+              style: "currency",
+              currency: "NGN",
+              minimumFractionDigits: 0,
+            })}
+          </Text>
+        </Left>
+        <Right>
+          <Button
+            containerStyle={styles.buttonContainer}
+            disabledContainerStyle={{ backgroundColor: "grey" }}
+            style={{ fontSize: 20, color: "white" }}
+            onPress={() => {
+              props.addItemToCart(item);
+            }}
+          >
+            Add
+          </Button>
+        </Right>
       </View>
     </Container>
   );
@@ -97,13 +99,13 @@ const styles = StyleSheet.create({
     left: 0,
     backgroundColor: "white",
   },
-  price:{
+  price: {
     fontSize: 24,
     margin: 20,
-    color: 'red'
+    color: "red",
   },
   buttonContainer: {
-    marginRight:10,
+    marginRight: 10,
     padding: 10,
     height: 45,
     overflow: "hidden",

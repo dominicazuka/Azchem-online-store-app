@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
-import { Text, Left, Right, ListItem, Thumbnail, Body } from "native-base";
+import {
+  Text,
+  Left,
+  Right,
+  ListItem,
+  Thumbnail,
+  Body,
+  ScrollView,
+} from "native-base";
 
 const CartItem = (props) => {
   const data = props.item.product;
@@ -22,7 +30,13 @@ const CartItem = (props) => {
           <Text>{data.name}</Text>
         </Left>
         <Right>
-          <Text>₦{data.price}</Text>
+          <Text>
+            {data.price.toLocaleString("en-US", {
+              style: "currency",
+              currency: "NGN",
+              minimumFractionDigits: 0,
+            })}
+          </Text>
         </Right>
       </Body>
     </ListItem>

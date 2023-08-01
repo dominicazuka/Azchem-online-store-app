@@ -69,7 +69,13 @@ const Cart = (props) => {
           />
           <View style={styles.bottomContainer}>
             <Left>
-              <Text style={styles.price}>₦{total}</Text>
+              <Text style={styles.price}>
+                {total.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "NGN",
+                  minimumFractionDigits: 0,
+                })}
+              </Text>
             </Left>
             <Right>
               <Button

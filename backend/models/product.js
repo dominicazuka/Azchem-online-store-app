@@ -41,20 +41,10 @@ const productSchema = mongoose.Schema({
     min: 0,
     max: 1000,
   },
-  size: [
-    {
-      size: {
-        type: String,
-        // required: true,
-      },
-      minStock: {
-        type: Number,
-        // required: true,
-        min: 0,
-        max: 1000,
-      },
-    },
-  ],
+  size: {
+    type: String,
+    required: true,
+  },
   rating: {
     type: Number,
     default: 0,
@@ -77,12 +67,12 @@ const productSchema = mongoose.Schema({
   },
 });
 
-productSchema.virtual('id').get(function(){
+productSchema.virtual("id").get(function () {
   return this._id.toHexString();
 });
 
-productSchema.set('toJSON', {
-  virtuals:true
-})
+productSchema.set("toJSON", {
+  virtuals: true,
+});
 
 exports.Product = mongoose.model("Product", productSchema);

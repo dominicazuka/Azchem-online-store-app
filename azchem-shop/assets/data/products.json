@@ -7,19 +7,10 @@
         "image": "https://i.ibb.co/dKNQgkW/333238926-215010467707671-6740853910715535731-n-Background-Removed.png",
         "images": ["https://upload.wikimedia.org/wikipedia/commons/8/8f/Blackstrapmolasses.JPG", "https://bsgcraftbrewing.com/wp-content/uploads/2021/11/0001583_blackstrap-molasses-59lb-pail_550.jpeg"],
         "brand": "Azchem",
-        "price": 2.99,
-        "category": "64c3e0a3bba97075eb1091ee",
+        "price": 1700,
+        "category": "64c3e099bba97075eb1091ea",
         "stock": 100,
-        "size": [
-          {
-            "size": "1 oz",
-            "minStock": 30
-          },
-          {
-            "size": "4 oz",
-            "minStock": 60
-          }
-        ],
+        "size": "500g",
         "rating": 4.5,
         "color": "#ffff00",
         "isFeatured": true,
@@ -33,19 +24,10 @@
         "image": "https://i.ibb.co/kgCWHKm/333057823-745240500301492-6489902685274192339-n-Background-Removed.png",
         "images": ["https://www.daringgourmet.com/wp-content/uploads/2020/04/Golden-Syrup-3-square.jpg", "https://1.bp.blogspot.com/_Z_Us2xEQ9t8/Sx9pdPNj2iI/AAAAAAAAGuk/yK5aMDDqRSk/sugarsyrupIMG_0683dppcs3whtw.jpg"],
         "brand": "Azchem",
-        "price": 4.99,
-        "category": "64c3e0a3bba97075eb1091ee",
+        "price": 2500,
+        "category": "64c3e099bba97075eb1091ea",
         "stock": 100,
-        "size": [
-          {
-            "size": "12 oz",
-            "minStock": 30
-          },
-          {
-            "size": "1 gallon",
-            "minStock": 60
-          }
-        ],
+        "size": "1kg",
         "rating": 4.2,
         "color": "#ffff00",
         "isFeatured": true,
@@ -59,19 +41,10 @@
         "image": "https://i.ibb.co/QN4HrLS/1-Background-Removed-Medium.png",
         "images": ["https://www.tastingtable.com/img/gallery/why-artificial-banana-flavor-doesnt-taste-like-the-real-thing/l-intro-1660147847.jpg", "https://4.imimg.com/data4/IT/NT/MY-12789705/1-500x500.jpg"],
         "brand": "Azchem",
-        "price": 3.99,
-        "category": "64c3e0a3bba97075eb1091ed",
+        "price": 3400,
+        "category": "64c3e077bba97075eb1091e8",
         "stock": 100,
-        "size": [
-          {
-            "size": "1 oz",
-            "minStock": 30
-          },
-          {
-            "size": "4 oz",
-            "minStock": 60
-          }
-        ],
+        "size": "1lt",
         "rating": 4.3,
         "color": "#ffff00",
         "isFeatured": true,
@@ -85,19 +58,10 @@
         "image": "https://i.ibb.co/nBWr3YH/9-Background-Removed-Medium.png",
         "images": ["https://cdn.store-factory.com/www.culinaide.com/content/product_4801045b.jpg?v=1597660182", "https://www.silverson.com/images/uploads/general/hero-flavd-milk.jpg"],
         "brand": "Azchem",
-        "price": 3.99,
-        "category": "64c3e0a3bba97075eb1091ed",
+        "price": 900,
+        "category": "64c3e077bba97075eb1091e8",
         "stock": 100,
-        "size": [
-          {
-            "size": "1 oz",
-            "minStock": 30
-          },
-          {
-            "size": "4 oz",
-            "minStock": 60
-          }
-        ],
+        "size": "250ml",
         "rating": 4.4,
         "color": "#ffff00",
         "isFeatured": true,
@@ -111,19 +75,10 @@
         "image": "https://i.ibb.co/RBmGBrZ/8-Background-Removed-Medium.png",
         "images": ["https://www.washingtonpost.com/resizer/c-GU_31i9HTBADHgb1Al3LiHEUw=/arc-anglerfish-washpost-prod-washpost/public/PNV2QMQFXEI6ZM6EYRRLD3OPZA.jpg", "https://c.ndtvimg.com/2021-05/p003t9p8_cocoa_625x300_20_May_21.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=675"],
         "brand": "Azchem",
-        "price": 4.99,
-        "category": "Additives",
+        "price": 6900,
+        "category": "64c3e099bba97075eb1091ea",
         "stock": 100,
-        "size": [
-          {
-            "size": "1 oz",
-            "minStock": 30
-          },
-          {
-            "size": "1 lb",
-            "minStock": 60
-          }
-        ],
+        "size": "5kg",
         "rating": 4.5,
         "color": "#ffff00",
         "isFeatured": true,
@@ -137,19 +92,10 @@
         "image": "https://i.ibb.co/jgMRYpM/4-Background-Removed-Medium.png",
         "images": ["https://www.ragus.co.uk/wp-content/uploads/2022/09/Black_Treacle_SEO_02_ss_1153780783_670px_wide.jpg", "https://www.ruchikrandhap.com/wp-content/uploads/2020/11/Treacle_2-scaled.jpg"],
         "brand": "Azchem",
-        "price": 5.99,
-        "category": "Additives",
+        "price": 2700,
+        "category": "64c3e099bba97075eb1091ea",
         "stock": 100,
-        "size": [
-          {
-            "size": "12 oz",
-            "minStock": 30
-          },
-          {
-            "size": "1 lb",
-            "minStock": 60
-          }
-        ],
+        "size": "1kg",
         "rating": 4.6,
         "color": "#ffff00",
         "isFeatured": true,
@@ -164,18 +110,9 @@
         "images": ["https://www.biggerbolderbaking.com/wp-content/uploads/2018/07/Butterscotch-sauce2.jpg", "https://chopnotch.com/wp-content/uploads/Butterscotch-Candy.jpg"],
         "brand": "Azchem",
         "price": 4.99,
-        "category": "64c3e0a3bba97075eb1091ed",
+        "category": "64c3e077bba97075eb1091e8",
         "stock": 100,
-        "size": [
-          {
-            "size": "12 oz",
-            "minStock": 30
-          },
-          {
-            "size": "1 lb",
-            "minStock": 60
-          }
-        ],
+        "size": "1lt",
         "rating": 4.7,
         "color": "#ffff00",
         "isFeatured": true,
@@ -189,19 +126,10 @@
         "image": "https://i.ibb.co/yBTcZwp/2-Background-Removed-Medium.png",
         "images": ["https://cdn.store-factory.com/www.culinaide.com/content/product_10972459b.png?v=1581425241", "https://www.bickfordflavors.com/cdn/shop/products/chocolate_grande.jpeg?v=1604921429"],
         "brand": "Azchem",
-        "price": 3.99,
-        "category": "64c3e0a3bba97075eb1091ed",
+        "price": 1800,
+        "category": "64c3e077bba97075eb1091e8",
         "stock": 100,
-        "size": [
-          {
-            "size": "1 oz",
-            "minStock": 30
-          },
-          {
-            "size": "4 oz",
-            "minStock": 60
-          }
-        ],
+        "size": "250ml",
         "rating": 4.8,
         "color": "#ffff00",
         "isFeatured": true,
@@ -215,19 +143,10 @@
         "image": "https://i.ibb.co/GsjsF0R/11-Background-Removed-Medium.png",
         "images": ["https://images.squarespace-cdn.com/content/v1/5a2ea45ff6576e9201a1844b/1617219572337-H68RUMUZVGTEA2X9VJIK/A15+Clear+Strawberry+2.jpeg", "https://images.squarespace-cdn.com/content/v1/5a2ea45ff6576e9201a1844b/1671164207070-XFUT0IEG9SYTDWL44K8L/IMG_2898.jpg?format=1000w"],
         "brand": "Azchem",
-        "price": 3.99,
-        "category": "64c3e0a3bba97075eb1091ed",
+        "price": 1900,
+        "category": "64c3e077bba97075eb1091e8",
         "stock": 100,
-        "size": [
-          {
-            "size": "1 oz",
-            "minStock": 30
-          },
-          {
-            "size": "4 oz",
-            "minStock": 60
-          }
-        ],
+        "size": "500ml",
         "rating": 4.8,
         "color": "#ffff00",
         "isFeatured": true,
@@ -241,19 +160,10 @@
         "image": "https://i.ibb.co/C98d94P/IMG-2313-scaled-1-Background-Removed-Medium.png",
         "images": ["https://s.alicdn.com/@sc04/kf/H8c7541f418154317b3be55e3e5336b95h.jpg_300x300.jpg", "https://www.flavoursogood.com/Uploads/image/20200606/1591444018324974.jpg"],
         "brand": "Azchem",
-        "price": 4.99,
-        "category": "64c3e0a3bba97075eb1091ed",
+        "price": 4900,
+        "category": "64c3e077bba97075eb1091e8",
         "stock": 100,
-        "size": [
-          {
-            "size": "1 oz",
-            "minStock": 30
-          },
-          {
-            "size": "4 oz",
-            "minStock": 60
-          }
-        ],
+        "size": "1lt",
         "rating": 4.9,
         "color": "#ffff00",
         "isFeatured": true,

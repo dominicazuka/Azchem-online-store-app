@@ -33,7 +33,13 @@ const ProductCard = (props) => {
         <Text style={styles.title}>
           {name.length > 15 ? name.substring(0, 15 - 3) + "..." : name}
         </Text>
-        <Text style={styles.price}> ₦{price} </Text>
+        <Text style={styles.price}>
+          {price.toLocaleString("en-US", {
+            style: "currency",
+            currency: "NGN",
+            minimumFractionDigits: 0,
+          })}
+        </Text>
         {stock > 0 ? (
           <View style={{ marginBottom: 60, marginTop: 10 }}>
             <Button
