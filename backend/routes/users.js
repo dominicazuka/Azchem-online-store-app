@@ -37,12 +37,13 @@ router.get("/:id", async (req, res) => {
 });
 
 // Create a new user
-router.post("/", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
+    console.log("body", req.body);
     let user = new User({
       name: req.body.name,
       email: req.body.email,
-      passwordHash: bcrypt.hashSync(req.body.passwordHash, 10),
+      passwordHash: bcrypt.hashSync(req.body.password, 10),
       phone: req.body.phone,
       isAdmin: req.body.isAdmin,
       street: req.body.street,

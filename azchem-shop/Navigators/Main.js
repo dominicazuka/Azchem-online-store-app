@@ -3,10 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
-
 //Stacks
 import HomeNavigator from "./HomeNavigator";
 import CartNavigator from "./CartNavigator";
+import UserNavigator from "./UserNavigator";
 
 //cartIcon
 import CartIcon from "../Screens/Shared/CartIcon";
@@ -63,22 +63,22 @@ const Main = () => {
                     />
                    )
             }}
-        />
-
-<Tab.Screen 
-            name="User"
-            component={}
-            options={{
-                tabBarIcon: ({color}) => (
-                    <Icon
-                        name="user"
-                        style={{position: 'relative'}}
-                        color={color}
-                        size={30}
-                    />
-                   )
-            }}
         /> */}
+
+      <Tab.Screen
+        name="User"
+        component={UserNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon
+              name="user"
+              style={{ position: "relative" }}
+              color={color}
+              size={30}
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
