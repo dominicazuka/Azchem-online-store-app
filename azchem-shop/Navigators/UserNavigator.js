@@ -34,12 +34,13 @@ function MyStack() {
         component={UserProfile}
         options={{
           headerShown: false,
+          title: "User Profile",
         }}
       />
     </Stack.Navigator>
   );
 }
-
+ 
 export default function UserNavigator() {
   return <MyStack />;
-}
+} 

@@ -1,16 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import FormContainer from "../Shared/Form/FormContainer";
 import Input from "../Shared/Form/Input";
 import Button from "react-native-button";
 import Error from "../Shared/Error";
 
+//Context
+import AuthGlobal from "../../Context/store/AuthGlobal";
+import { loginUser } from "../../Context/actions/Auth.actions";
+
 const Login = (props) => {
+  const context = useContext(AuthGlobal);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = () => {
+  useEffect(() => {
+    if (context.stateUser.isAuthenticated === true) {
+      return props.navigation.navigate("User Profile");
+    }
+  }, [context.stateUser.isAuthenticated]);
+
+  const handleSubmit = async () => {
     const user = {
       email,
       password,
@@ -20,6 +31,8 @@ const Login = (props) => {
     } else {
       setError("");
       console.log("Successfully submitted");
+      loginUser(user, context.dispatch);
+      props.navigation.navigate("User Profile");
     }
   };
 
@@ -93,7 +106,7 @@ const styles = StyleSheet.create({
   buttonGroup: {
     width: "80%",
     alignItems: "center",
-    marginTop: 10
+    marginTop: 10,
   },
   middleText: {
     marginBottom: 10,
