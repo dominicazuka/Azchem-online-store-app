@@ -45,7 +45,10 @@ const ListItem = (props) => {
               <Icon name="window-close" size={20} />
             </TouchableOpacity>
             <Button
-              containerStyle={[styles.buttonContainer, { marginBottom: 10, backgroundColor:"#1F8B0D"}]}
+              containerStyle={[
+                styles.buttonContainer,
+                { marginBottom: 10, backgroundColor: "#1F8B0D" },
+              ]}
               disabledContainerStyle={{ backgroundColor: "grey" }}
               style={{ fontSize: 20, color: "white" }}
               onPress={() => {
@@ -60,10 +63,7 @@ const ListItem = (props) => {
               containerStyle={styles.buttonContainer}
               disabledContainerStyle={{ backgroundColor: "grey" }}
               style={{ fontSize: 20, color: "white" }}
-            //   onPress={() => {
-            //     props.navigation.navigate("ProductForm"),
-            //       setModalVisible(false);
-            //   }}
+              onPress={() => [props.delete(props._id), setModalVisible(false)]}
             >
               Delete
             </Button>
@@ -72,7 +72,7 @@ const ListItem = (props) => {
       </Modal>
       <TouchableOpacity
         onPress={() => {
-            props.navigation.navigate("Product Detail", {item: props})
+          props.navigation.navigate("Product Detail", { item: props });
         }}
         onLongPress={() => setModalVisible(true)}
         style={[
@@ -143,18 +143,18 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 7,
   },
-  centeredView:{
+  centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
   },
-  modalView:{
+  modalView: {
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: 'center',
+    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

@@ -167,7 +167,7 @@ router.delete("/:id", async (req, res) => {
     if (!mongoose.isValidObjectId(req.params.id)) {
       return res.status(404).send("Invalid Product ID");
     }
-    const product = await Product.findByIdAndDelete(req.params.id);
+    const product = await Product.findOneAndDelete(req.params.id);
     if (product) {
       return res
         .status(200)
