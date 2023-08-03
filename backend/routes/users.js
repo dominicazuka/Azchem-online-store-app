@@ -69,7 +69,7 @@ router.post("/login", async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     const secret = process.env.JWT_SECRET_KEY;
     if (!user) {
-      return res.status(404).json({message:"Wrong Credentials!"});
+      return res.status(404).json({message:"Wrong Credentials!!"});
     }
 
     if (user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
