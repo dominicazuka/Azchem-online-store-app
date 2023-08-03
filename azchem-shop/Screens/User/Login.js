@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import FormContainer from "../Shared/Form/FormContainer";
 import Input from "../Shared/Form/Input";
 import Button from "react-native-button";
@@ -21,12 +21,6 @@ const Login = (props) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   if (context.stateUser.isAuthenticated === true) {
-  //     return props.navigation.navigate("User Profile");
-  //   }
-  // }, [context.stateUser.isAuthenticated]);
-
   const handleSubmit = async () => {
     const user = {
       email,
@@ -36,7 +30,15 @@ const Login = (props) => {
     if (email === "" || password === "") {
       return setError("Please fill in your credentials");
     }
+    // Regular expression to validate email format
+    const emailPattern =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!emailPattern.test(email)) {
+      return setError("Invalid email format");
+    }
     setError("");
+    setLoading(true)
     const loginResponse = await fetch(`${baseURL}users/login`, {
       method: "POST",
       body: JSON.stringify(user),
@@ -46,19 +48,21 @@ const Login = (props) => {
       },
     });
     const loginData = await loginResponse.json();
-    if (loginData.message === "Wrong Credentials!") {
+    if (loginData.message === "Wrong Credentials") {
       Toast.show({
         topOffset: 60,
         type: "error",
         text1: "Please provide correct credentials",
         text2: "",
       });
+      setLoading(false)
     } else {
       const token = loginData.token;
       await AsyncStorage.setItem("jwt", token);
       const decoded = jwt_decode(token);
       setCurrentUser({ decoded, user: user.email });
       loginUser(user, context.dispatch);
+      setLoading(false)
       Toast.show({
         topOffset: 60,
         type: "success",
@@ -91,6 +95,11 @@ const Login = (props) => {
         }}
       />
       <View style={styles.buttonGroup}>
+      {loading ? (
+        <View>
+          <ActivityIndicator size="large" color="red" />
+        </View>
+      ) : null}
         {error ? <Error message={error} /> : null}
         <Button
           containerStyle={styles.buttonContainer}
@@ -106,7 +115,7 @@ const Login = (props) => {
       <View style={[{ marginTop: 10 }, styles.buttonGroup]}>
         <Text style={styles.middleText}>Don't have an account yet?</Text>
         <Button
-          containerStyle={styles.buttonContainer}
+          containerStyle={[styles.buttonContainer, {backgroundColor:'#1F8B0D'}]}
           disabledContainerStyle={{ backgroundColor: "grey" }}
           style={{ fontSize: 20, color: "white" }}
           onPress={() => {

@@ -5,11 +5,30 @@ import Button from "react-native-button";
 import { connect } from "react-redux";
 import * as actions from "../../Redux/Actions/cartActions";
 import Toast from "react-native-toast-message";
+import TrafficLight from "../Shared/StyledComponents/TrafficLight";
 
 const SingleProduct = (props) => {
-  console.log(`Single Product`, props);
   const [item, setItem] = useState(props.route.params.item);
-  const [availability, setAvailability] = useState("");
+  const [availability, setAvailability] = useState(null);
+  const [availabilityText, setAvailabilityText] = useState("");
+
+  useEffect(() => {
+    if (props.route.params.item.stock == 0) {
+      setAvailability(<TrafficLight unavailable></TrafficLight>);
+      setAvailabilityText("Unavailable");
+    } else if (props.route.params.item.stock <= 5) {
+      setAvailability(<TrafficLight limited></TrafficLight>);
+      setAvailabilityText("Limited");
+    } else {
+      setAvailability(<TrafficLight available></TrafficLight>);
+      setAvailabilityText("Available");
+    }
+
+    return () => {
+      setAvailability(null);
+      setAvailabilityText("");
+    };
+  }, []);
 
   return (
     <Container style={styles.container}>
@@ -29,7 +48,15 @@ const SingleProduct = (props) => {
           <H1 style={styles.contentHeader}>{item.name}</H1>
           <Text style={styles.contentText}>{item.brand}</Text>
         </View>
-        {/* Description, rich description and availability*/}
+        <View style={styles.availabilityContainer}>
+          <View style={styles.availability}>
+            <Text style={{ marginRight: 10, marginLeft: 10 }}>
+              Availability: {availabilityText}
+            </Text>
+            {availability}
+          </View>
+          <Text style={{padding: 10}}>{item.description}</Text>
+        </View>
       </ScrollView>
       <View style={styles.bottomContainer}>
         <Left>
@@ -48,12 +75,12 @@ const SingleProduct = (props) => {
             style={{ fontSize: 20, color: "white" }}
             onPress={() => {
               props.addItemToCart(item),
-              Toast.show({
-                topOffset: 60,
-                type: 'success',
-                text1: `${item.name} added to cart`,
-                text2: 'Go to your cart to complete order'
-              })
+                Toast.show({
+                  topOffset: 60,
+                  type: "success",
+                  text1: `${item.name} added to cart`,
+                  text2: "Go to your cart to complete order",
+                });
             }}
           >
             Add
@@ -74,7 +101,7 @@ const mapDispatchToProps = (dispatch) => {
 const styles = StyleSheet.create({
   container: {
     position: "relative",
-    height: 150,
+    height: '100%',
   },
   imageContainer: {
     backgroundColor: "white",
@@ -126,6 +153,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 7,
+  },
+  availabilityContainer: {
+    marginBottom: 20,
+    justifyContent: "center",
+    alignItem: "center",
+  },
+  availability: {
+    flexDirection: "row",
+    marginBottom: 10,
+    justifyContent: "center",
+    alignItem: "center",
   },
 });
 

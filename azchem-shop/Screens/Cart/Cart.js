@@ -79,7 +79,7 @@ const Cart = (props) => {
             </Left>
             <Right>
               <Button
-                containerStyle={styles.buttonContainer}
+                containerStyle={[styles.buttonContainer, {backgroundColor:'#1F8B0D'}]}
                 disabledContainerStyle={{ backgroundColor: "grey" }}
                 style={{ fontSize: 20, color: "white" }}
                 onPress={() => {
