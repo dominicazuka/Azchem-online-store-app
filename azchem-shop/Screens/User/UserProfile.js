@@ -11,44 +11,21 @@ import { logoutUser } from "../../Context/actions/Auth.actions";
 
 const UserProfile = (props) => {
   const context = useContext(AuthGlobal);
-  const [userProfile, setUserProfile] = useState();
+  const { user } = context.stateUser;
 
-  useEffect(() => {
-    console.log("user state: ", context.stateUser);
-    if (
-      context.stateUser.isAuthenticated === false ||
-      context.stateUser.isAuthenticated === null
-    ) {
-      return props.navigation.navigate("Login");
-    }
 
-    AsyncStorage.getItem("jwt")
-      .then((res) => {
-        axios
-          .get(`${baseURL}users/${context.stateUser.user.userId}`, {
-            headers: { Authorization: `Bearer ${res}` },
-          })
-          .then((user) => {setUserProfile(user.data)});
-      })
-      .catch((error) => console.log(error));
-
-    return () => {
-      setUserProfile(); 
-    };
-  }, [context.stateUser.isAuthenticated]); 
-
-  return (
+  return ( 
     <Container style={styles.container}>
-      <ScrollView contentContainerStyle={styles.subContainer} >
+      <ScrollView contentContainerStyle={styles.subContainer}>
         <Text style={{ fontSize: 30 }}>
-          {userProfile ? userProfile.name : ""}
+          {user ? user.name : ""}
         </Text>
         <View style={{ marginTop: 20 }}>
           <Text style={{ margin: 10 }}>
-            Email: {userProfile ? userProfile.email : ""}
+            Email: {user ? user.email : ""}
           </Text>
           <Text style={{ margin: 10 }}>
-            Phone: {userProfile ? userProfile.phone : ""} 
+            Phone: {user ? user.phone : ""}
           </Text>
         </View>
         <View style={{ marginTop: 80 }}>
@@ -57,9 +34,9 @@ const UserProfile = (props) => {
             disabledContainerStyle={{ backgroundColor: "grey" }}
             style={{ fontSize: 20, color: "white" }}
             onPress={() => {
-              AsyncStorage.removeItem('jwt'),
-              logoutUser(context.dispatch),
-               props.navigation.navigate("Login")
+              AsyncStorage.removeItem("jwt"),
+                logoutUser(context.dispatch),
+                props.navigation.navigate("Login");
             }}
           >
             Sign Out
@@ -86,14 +63,14 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 7,
   },
-  container:{
+  container: {
     flex: 1,
     alignItems: "center",
   },
-  subContainer:{
+  subContainer: {
     alignItems: "center",
-    marginTop: 60
-  }
+    marginTop: 60,
+  },
 });
 
 export default UserProfile;

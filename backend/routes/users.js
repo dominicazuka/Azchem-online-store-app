@@ -69,14 +69,21 @@ router.post("/login", async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     const secret = process.env.JWT_SECRET_KEY;
     if (!user) {
-      return res.status(404).send("The user is not found");
+      return res.status(404).json({message:"Wrong Credentials!"});
     }
 
     if (user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
       const token = jwt.sign(
         {
           userId: user.id,
-          isAdmin: user.isAdmin
+          isAdmin: user.isAdmin,
+          email: user.email,
+          phone: user.phone,
+          street: user.street,
+          apartment: user.apartment,
+          zip: user.zip,
+          city: user.city,
+          country: user.country
         },
         secret,
         { expiresIn: "1d" }

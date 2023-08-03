@@ -4,35 +4,68 @@ import FormContainer from "../Shared/Form/FormContainer";
 import Input from "../Shared/Form/Input";
 import Button from "react-native-button";
 import Error from "../Shared/Error";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import baseURL from "../../assets/common/baseUrl";
 
 //Context
 import AuthGlobal from "../../Context/store/AuthGlobal";
-import { loginUser } from "../../Context/actions/Auth.actions";
+import { loginUser, setCurrentUser } from "../../Context/actions/Auth.actions";
+import Toast from "react-native-toast-message";
 
 const Login = (props) => {
   const context = useContext(AuthGlobal);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (context.stateUser.isAuthenticated === true) {
-      return props.navigation.navigate("User Profile");
-    }
-  }, [context.stateUser.isAuthenticated]);
+  // useEffect(() => {
+  //   if (context.stateUser.isAuthenticated === true) {
+  //     return props.navigation.navigate("User Profile");
+  //   }
+  // }, [context.stateUser.isAuthenticated]);
 
   const handleSubmit = async () => {
     const user = {
       email,
       password,
     };
+
     if (email === "" || password === "") {
-      setError("Please fill in your credentials");
+      return setError("Please fill in your credentials");
+    }
+    setError("");
+    const loginResponse = await fetch(`${baseURL}users/login`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+    const loginData = await loginResponse.json();
+    if (loginData.message === "Wrong Credentials!") {
+      Toast.show({
+        topOffset: 60,
+        type: "error",
+        text1: "Please provide correct credentials",
+        text2: "",
+      });
     } else {
-      setError("");
-      console.log("Successfully submitted");
+      const token = loginData.token;
+      await AsyncStorage.setItem("jwt", token);
+      const decoded = jwt_decode(token);
+      setCurrentUser({ decoded, user: user.email });
       loginUser(user, context.dispatch);
-      props.navigation.navigate("User Profile");
+      Toast.show({
+        topOffset: 60,
+        type: "success",
+        text1: "Login Successful",
+        text2: "",
+      });
+      return props.navigation.navigate("User Profile");
     }
   };
 
