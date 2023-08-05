@@ -39,7 +39,13 @@ router.get("/:id", async (req, res) => {
 // Create a new user
 router.post("/register", async (req, res) => {
   try {
-    console.log("body", req.body);
+    const findUsers = await User.find({
+      $or: [{ email: req.body.email }, { phone: req.body.phone }],
+    });
+    if (findUsers.length > 0) {
+      return res.status(409).json({message:`A user with that credentials (Phone No. or Email) already exist!`});
+    }
+    // console.log("body", req.body);
     let user = new User({
       name: req.body.name,
       email: req.body.email,

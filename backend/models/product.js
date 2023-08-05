@@ -8,6 +8,7 @@ const productSchema = mongoose.Schema({
   description: {
     type: String,
     default: "",
+    required: true
   },
   richDescription: {
     type: String,
@@ -43,7 +44,7 @@ const productSchema = mongoose.Schema({
   },
   size: {
     type: String,
-    required: true,
+    default: "",
   },
   rating: {
     type: Number,

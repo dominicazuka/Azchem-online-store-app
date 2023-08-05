@@ -52,7 +52,7 @@ const ListItem = (props) => {
               disabledContainerStyle={{ backgroundColor: "grey" }}
               style={{ fontSize: 20, color: "white" }}
               onPress={() => {
-                props.navigation.navigate("ProductForm"),
+                props.navigation.navigate("Product Form", { item: props }),
                   setModalVisible(false);
               }}
             >
@@ -63,7 +63,10 @@ const ListItem = (props) => {
               containerStyle={styles.buttonContainer}
               disabledContainerStyle={{ backgroundColor: "grey" }}
               style={{ fontSize: 20, color: "white" }}
-              onPress={() => [props.delete(props._id), setModalVisible(false)]}
+              onPress={() => {
+                props.deleteProduct();
+                setModalVisible(false);
+              }}
             >
               Delete
             </Button>

@@ -11,7 +11,14 @@ const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "white", // Change this to your desired background color
+        },
+        headerTintColor: "red", // Set the color of the back button here
+      }}
+    >
       <Stack.Screen
         name="Products"
         component={Products}
@@ -21,11 +28,11 @@ function MyStack() {
       />
       <Stack.Screen name="Categories" component={Categories} />
       <Stack.Screen name="Orders" component={Orders} />
-      <Stack.Screen name="ProductForm" component={ProductForm} />
+      <Stack.Screen name="Product Form" component={ProductForm} />
     </Stack.Navigator>
   );
 }
 
-export default function AdminNavigator(){
-    return <MyStack/>
+export default function AdminNavigator() {
+  return <MyStack />;
 }

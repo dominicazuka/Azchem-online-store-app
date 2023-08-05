@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import FormContainer from "../Shared/Form/FormContainer";
 import Input from "../Shared/Form/Input";
 import Error from "../Shared/Error";
@@ -15,12 +15,21 @@ const Register = (props) => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const register = () => {
     if (email === "" || name === "" || phone === "" || password === "") {
       return setError("Please fill in the form correctly");
     }
+    // Regular expression to validate email format
+    const emailPattern =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!emailPattern.test(email)) {
+      return setError("Invalid email format");
+    }
     setError("");
+    setLoading(true);
     let user = {
       name: name,
       email: email,
@@ -32,6 +41,7 @@ const Register = (props) => {
       .post(`${baseURL}users/register`, user)
       .then((res) => {
         if (res.status == 200) {
+          setLoading(false);
           Toast.show({
             topOffset: 70,
             type: "success",
@@ -44,13 +54,23 @@ const Register = (props) => {
         }
       })
       .catch((error) => {
-        console.log(error);
-        Toast.show({
-          topOffset: 70,
-          type: "error",
-          text1: "Something went wrong",
-          text2: "Please try again",
-        });
+        if (error.response && error.response.status === 409) {
+          // Handle email or phone already exists error
+          Toast.show({
+            topOffset: 70,
+            type: "error",
+            text1: "Email or phone number already exists",
+            text2: "Please try again with new credentials",
+          });
+        } else {
+          console.log(error);
+          Toast.show({
+            topOffset: 70,
+            type: "error",
+            text1: "Something went wrong",
+            text2: "Please try again",
+          });
+        }
       });
 
     console.log("Successfully submitted");
@@ -89,6 +109,11 @@ const Register = (props) => {
           secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
         />
+        {loading ? (
+          <View style={{ marginTop: 10 }}>
+            <ActivityIndicator size="large" color="red" />
+          </View>
+        ) : null}
         <View>{error ? <Error message={error} /> : null}</View>
         <View>
           <Button
@@ -102,7 +127,10 @@ const Register = (props) => {
         </View>
         <View style={styles.buttonGroup}>
           <Button
-            containerStyle={[styles.buttonContainer, {backgroundColor:'#1F8B0D'}]}
+            containerStyle={[
+              styles.buttonContainer,
+              { backgroundColor: "#1F8B0D" },
+            ]}
             disabledContainerStyle={{ backgroundColor: "grey" }}
             style={{ fontSize: 20, color: "white" }}
             onPress={() => {

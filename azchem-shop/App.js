@@ -24,7 +24,7 @@ export default function App() {
     <Auth>
       <Provider store={store}>
         <NavigationContainer>
-          <StatusBar backgroundColor="red" />
+          <StatusBar backgroundColor="red" translucent={false}/>
           <Header />
           <Main />
           <Toast ref={(ref) => Toast.setRef(ref)} />
