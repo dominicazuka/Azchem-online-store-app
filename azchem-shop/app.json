@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Azchem-online-store",
-    "slug": "Azchem-online-store",
+    "name": "Azchem Store",
+    "slug": "Azchem-Store",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FF0000"
     },
     "assetBundlePatterns": [
       "**/*"

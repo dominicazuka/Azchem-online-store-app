@@ -11,7 +11,7 @@ const EasyButton = styled.TouchableOpacity`
   ${(props) =>
     props.primary &&
     css`
-      background: #1F8B0D;
+      background: #1f8b0d;
     `}
 
   ${(props) =>
@@ -25,6 +25,17 @@ const EasyButton = styled.TouchableOpacity`
     css`
       background: #f40105;
     `}
+
+    ${(props) =>
+    props.dark &&
+    css`
+      background: #fff;
+      shadowColor: "#fff";
+      shadowOpacity: 0.5;
+      shadowOffset: 0px 5px;
+      shadowRadius: 3.84;
+      elevation: 5;
+      `}
 
     ${(props) =>
     props.large &&

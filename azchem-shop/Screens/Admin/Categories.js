@@ -31,7 +31,7 @@ const Item = (props) => {
 }
 const Categories = (props) => {
   const [categories, setCategories] = useState([]);
-  const [categoryName, setCategoryName] = useState();
+  const [categoryName, setCategoryName] = useState("");
   const [token, setToken] = useState();
 
   useEffect(() => {
@@ -68,6 +68,14 @@ const Categories = (props) => {
   const addCategory = () => {
     const category = {
       name: categoryName
+    }
+    if(categoryName === ""){
+      return Toast.show({
+        topOffset: 60,
+        type: "error",
+        text1: "Add a category name",
+        text2: "Fill in the input field",
+      });
     }
     const config = {
       headers: {
@@ -130,7 +138,7 @@ const Categories = (props) => {
 
       <View style={styles.bottomBar}>
         <View>
-          <Text>Add Category</Text>
+          <Text style={{marginLeft: 5}}>Add Category</Text>
         </View>
         <View style={{ width: width / 2.5 }}>
           <TextInput
@@ -170,6 +178,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: "grey",
     borderWidth: 1,
+    borderRadius: 15
   },
   item:{
     shadowColor: "#000",

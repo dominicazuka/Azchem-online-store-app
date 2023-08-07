@@ -2,33 +2,46 @@ import React, { useContext, useState, useCallback, useEffect } from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import Button from "react-native-button";
 import { Container } from "native-base";
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect,   useRoute, } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import baseURL from "../../assets/common/baseUrl";
 import AuthGlobal from "../../Context/store/AuthGlobal";
 import { logoutUser } from "../../Context/actions/Auth.actions";
+import OrderCard from "../Shared/OrderCard";
 
-const UserProfile = (props) => {
+const UserProfile = (props) => { 
   const context = useContext(AuthGlobal);
+  const route = useRoute();
+  // Access the name of the current screen
+  const currentScreen = route.name;
   const { user } = context.stateUser;
+  const [orders, setOrders] = useState([]);
 
+  useFocusEffect(
+    useCallback(() => {
+      axios
+        .get(`${baseURL}orders`)
+        .then((response) => {
+          const data = response.data;
+          const userOrders = data.filter(
+            (order) => order.user.id === user.userId
+          );
+          setOrders(userOrders);
+        })
+        .catch((error) => console.log(error));
+    }, [user.userId,currentScreen])
+  );
 
-  return ( 
+  return (
     <Container style={styles.container}>
       <ScrollView contentContainerStyle={styles.subContainer}>
-        <Text style={{ fontSize: 30 }}>
-          {user ? user.name : ""}
-        </Text>
-        <View style={{ marginTop: 20 }}>
-          <Text style={{ margin: 10 }}>
-            Email: {user ? user.email : ""}
-          </Text>
-          <Text style={{ margin: 10 }}>
-            Phone: {user ? user.phone : ""}
-          </Text>
+        <Text style={{ fontSize: 30 }}>{user ? user.name : ""}</Text>
+        <View>
+          <Text style={{ margin: 10 }}>Email: {user ? user.email : ""}</Text>
+          <Text style={{ margin: 10 }}>Phone: {user ? user.phone : ""}</Text>
         </View>
-        <View style={{ marginTop: 80 }}>
+        <View style={{ marginTop: 10 }}>
           <Button
             containerStyle={styles.buttonContainer}
             disabledContainerStyle={{ backgroundColor: "grey" }}
@@ -41,6 +54,20 @@ const UserProfile = (props) => {
           >
             Sign Out
           </Button>
+        </View>
+        <View style={styles.order}>
+          <Text style={{ fontSize: 20 }}>My Orders</Text>
+          <View>
+            {orders ? (
+              orders.map((x) => {
+                return <OrderCard key={x.id} {...x} />;
+              })
+            ) : (
+              <View style={styles.order}>
+                <Text>You have no orders</Text>
+              </View>
+            )}
+          </View>
         </View>
       </ScrollView>
     </Container>
@@ -69,7 +96,11 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     alignItems: "center",
-    marginTop: 60,
+  },
+  order: {
+    marginTop: 20,
+    alignItems: "center",
+    marginBottom: 60,
   },
 });
 

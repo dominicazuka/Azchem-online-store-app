@@ -43,10 +43,11 @@ user:{
 },
 shippingMethod:{
   type: String,
-  required: true,
+  default: ""
 },
 trackingNumber:{
-  type: String
+  type: String,
+  default: ""
 },
 dateOrdered:{
   type: Date,

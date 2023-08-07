@@ -12,6 +12,7 @@ const authJwt = ()=>{
             {url: /\/public\/uploads(.*)/, methods: ['GET', 'OPTIONS']}, //regular expression to handle images api path
             {url: /\/api\/v1\/products(.*)/, methods: ['GET', 'OPTIONS']}, //regular expression to handle anything after product api path
             {url: /\/api\/v1\/categories(.*)/, methods: ['GET', 'OPTIONS']}, //regular expression to handle anything after category api path
+            {url: /\/api\/v1\/orders(.*)/, methods: ['GET', 'OPTIONS', 'POST']}, //regular expression to handle anything after order api path
             `${api}/users/login`,
             `${api}/users/register`,
         ] //apis to be excluded

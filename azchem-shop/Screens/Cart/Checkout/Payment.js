@@ -31,8 +31,19 @@ const paymentCards = [
 
 const Payment = (props) => {
   const order = props.route.params;
-  const [selected, setSelected] = useState();
-  const [card, setCard] = useState();
+  const [selected, setSelected] = useState("");
+  const [card, setCard] = useState("");
+
+  const [disabled, setDisabled] = useState(true); // Initialize the button as disabled
+
+  useEffect(() => {
+    // Check if the selected payment method requires additional card selection
+    if ((selected === 3 && card === "") || (selected !== 3 && selected !== 1 && selected !== 2)) {
+      setDisabled(true); // If card is not selected or neither "Cash on Delivery" nor "Bank Transfer" is selected, keep the button disabled
+    } else {
+      setDisabled(false); // Enable the button if payment is selected or card is chosen
+    }
+  }, [selected, card]);
 
   return (
     <Container>
@@ -77,6 +88,7 @@ const Payment = (props) => {
             disabledContainerStyle={{ backgroundColor: "grey" }}
             style={{ fontSize: 20, color: "white" }}
             onPress={() => props.navigation.navigate('Confirm', {order})}
+            disabled={disabled} // Disable the button if there's an error
           >
             Confirm
           </Button>

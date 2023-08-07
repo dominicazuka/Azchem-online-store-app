@@ -58,9 +58,7 @@ router.post("/", async (req, res) => {
     );
 
     const totalPrice = totalPrices.reduce((a, b) => a + b, 0);
-
-    console.log("orderItemsResolved>>>  ", orderItemsResolved);
-    console.log("totalPrice>>> ", totalPrices);
+    console.log("user", req.body.user)
 
     let order = new Order({
       orderItems: orderItemsResolved,
@@ -80,7 +78,7 @@ router.post("/", async (req, res) => {
     if (!order) return res.status(404).send("The order cannot be created");
     res.send(order);
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     res
       .status(500)
       .json({ message: "Sorry an error occurred, please try again." });

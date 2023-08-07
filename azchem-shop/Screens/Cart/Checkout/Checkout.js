@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Image, View, StyleSheet, Text, ScrollView } from "react-native";
 import { Left, Right, Item, Picker, Container, H1 } from "native-base";
 import Button from "react-native-button";
@@ -7,38 +7,70 @@ import FormContainer from "../../Shared/Form/FormContainer";
 import Input from "../../Shared/Form/Input";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { connect } from "react-redux";
+import Error from "../../Shared/Error";
+import AuthGlobal from "../../../Context/store/AuthGlobal";
 
 const countries = require("../../../assets/data/countries.json");
 
 const Checkout = (props) => {
   const [orderItems, setOrderItems] = useState();
-  const [address, setAddress] = useState();
-  const [address2, setAddress2] = useState();
-  const [city, setCity] = useState();
-  const [zip, setZip] = useState();
-  const [country, setCountry] = useState();
-  const [phone, setPhone] = useState();
+  const [address, setAddress] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [city, setCity] = useState("");
+  const [zip, setZip] = useState("");
+  const [country, setCountry] = useState("");
+  const [phone, setPhone] = useState("");
+  const [err, setError] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [user, setUser] = useState();
+
+  const context = useContext(AuthGlobal)
 
   useEffect(() => {
     setOrderItems(props.cartItems);
-
+    if (Object.keys(context.stateUser.user).length === 0) {
+      props.navigation.navigate("User");
+      Toast.show({
+        topOffset: 60,
+        type: "error",
+        text1: "Please Login to Checkout",
+        text2: "",
+      });
+    } else {
+      setUser(context.stateUser.user.userId);
+    }
     return () => {
       setOrderItems();
     };
   }, []);
 
   const checkOut = () => {
-    let order = {
-      city,
-      country,
-      dateOrdered: Date.now(),
-      orderItems,
-      phone,
-      shippingAddress1: address,
-      shippingAddress2: address2,
-      zip,
-    };
-    props.navigation.navigate("Payment", { order: order });
+    if (
+      city === "" ||
+      country === "" ||
+      phone === "" ||
+      address === "" ||
+      address2 === "" ||
+      zip === ""
+    ) {
+      return setError("Please fill in the form correctly");
+    } else {
+      setError(""); // Clear the error if the form is valid
+      setDisabled(false);
+      let order = {
+        city,
+        country,
+        dateOrdered: Date.now(),
+        orderItems,
+        phone,
+        shippingAddress1: address,
+        shippingAddress2: address2,
+        status: "3",
+        user,
+        zip,
+      };
+      props.navigation.navigate("Payment", { order: order });
+    }
   };
 
   return (
@@ -54,6 +86,7 @@ const Checkout = (props) => {
           value={phone}
           keyboardType={"numeric"}
           onChangeText={(text) => setPhone(text)}
+          required
         />
         <Input
           placeholder={"Shipping Address 1"}
@@ -96,12 +129,14 @@ const Checkout = (props) => {
             })}
           </Picker>
         </Item>
+        {err ? <Error message={err} /> : null}
         <View style={{ width: "80%", alignItems: "center" }}>
           <Button
             containerStyle={styles.buttonContainer}
             disabledContainerStyle={{ backgroundColor: "grey" }}
             style={{ fontSize: 20, color: "white" }}
             onPress={() => checkOut()}
+            disabled={disabled} // Disable the button if there's an error
           >
             Confirm
           </Button>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext, useCallback } from "react";
 import {
   Image,
   View,
@@ -23,13 +23,14 @@ import Button from "react-native-button";
 import * as actions from "../../Redux/Actions/cartActions";
 import { SwipeListView } from "react-native-swipe-list-view";
 import CartItem from "./CartItem.js";
+import AuthGlobal from "../../Context/store/AuthGlobal.js";
+import Toast from "react-native-toast-message";
+import { useFocusEffect } from "@react-navigation/native";
 
 var { height, width } = Dimensions.get("window");
 
 const Cart = (props) => {
-  console.log("cartItems", props.cartItems);
-  console.log("props", props);
-
+  const context = useContext(AuthGlobal);
   const { cartItems } = props;
   var total = 0;
   props.cartItems.forEach((cart) => {
@@ -39,7 +40,6 @@ const Cart = (props) => {
   useEffect(() => {
     // This will log the cartItems whenever they change
     const productNames = cartItems.map((product) => product.product.name);
-    console.log(productNames);
   }, [cartItems]);
 
   return (
@@ -79,7 +79,10 @@ const Cart = (props) => {
             </Left>
             <Right>
               <Button
-                containerStyle={[styles.buttonContainer, {backgroundColor:'#1F8B0D'}]}
+                containerStyle={[
+                  { backgroundColor: "#1F8B0D" },
+                  styles.buttonContainer
+                ]}
                 disabledContainerStyle={{ backgroundColor: "grey" }}
                 style={{ fontSize: 20, color: "white" }}
                 onPress={() => {
@@ -90,14 +93,28 @@ const Cart = (props) => {
               </Button>
             </Right>
             <Right>
-              <Button
-                containerStyle={styles.buttonContainer}
-                disabledContainerStyle={{ backgroundColor: "grey" }}
-                style={{ fontSize: 20, color: "white" }}
-                onPress={() => props.navigation.navigate("Checkout")}
-              >
-                Checkout
-              </Button>
+              {context.stateUser.isAuthenticated ? (
+                <Button
+                  containerStyle={[{ backgroundColor: "red" },styles.buttonContainer]}
+                  disabledContainerStyle={{ backgroundColor: "grey" }}
+                  style={{ fontSize: 20, color: "white" }}
+                  onPress={() => props.navigation.navigate("Checkout")}
+                >
+                  Checkout
+                </Button>
+              ) : (
+                <Button
+                  containerStyle={[
+                    { backgroundColor: "#62b1f6" },
+                    styles.buttonContainer,
+                  ]}
+                  disabledContainerStyle={{ backgroundColor: "grey" }}
+                  style={{ fontSize: 20, color: "white" }}
+                  onPress={() => props.navigation.navigate("User")}
+                >
+                  Login
+                </Button>
+              )}
             </Right>
           </View>
         </Container>
@@ -122,7 +139,6 @@ const styles = StyleSheet.create({
     height: 45,
     overflow: "hidden",
     borderRadius: 20,
-    backgroundColor: "red",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

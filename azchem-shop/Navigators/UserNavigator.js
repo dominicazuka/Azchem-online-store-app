@@ -21,6 +21,7 @@ function MyStack() {
         options={{
           headerShown: false,
         }}
+        path="Login"
       />
       <Stack.Screen
         name="Register"
