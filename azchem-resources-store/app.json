@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Azchem Resources Store",
+    "slug": "azchem-resources-store",
+    "platforms": ["ios", "andriod", "web"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FF0000"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.azchemresources.azchemresourcesstore",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff",
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "package": "com.azchemresources.azchemresourcesstore",
+        "versionCode": 1
+      }
+    },
+    "description": "Our business is to provide essential products that will always stand the test of time. Our products include Food flavors, Food colors & Food additives",
+    "notification": {
+      "iosDisplayInForeground": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d183450d-2125-427f-be1a-c37094fbd24e"
+      }
+    },
+    "owner": "visitdominicazuka"
+  }
+}
