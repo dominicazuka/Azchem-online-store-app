@@ -21,9 +21,7 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#ffffff",
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "package": "com.azchemresources.azchemresourcesstore",
-        "versionCode": 1
+        "foregroundImage": "./assets/adaptive-icon.png"
       }
     },
     "description": "Our business is to provide essential products that will always stand the test of time. Our products include Food flavors, Food colors & Food additives",
