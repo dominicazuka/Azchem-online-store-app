@@ -39,7 +39,7 @@ const UserProfile = (props) => {
             (order) => order.user.id === user.userId
           );
           setOrders(userOrders);
-          setLoading(false)
+          setLoading(false);
         })
         .catch((error) => console.log(error));
     }, [user.userId, currentScreen])
@@ -89,10 +89,10 @@ const UserProfile = (props) => {
         <View style={styles.body}>
           <Pressable style={styles.RectangleShapeView}></Pressable>
           {loading ? (
-        <View style={{marginTop: 20}}>
-          <ActivityIndicator size="large" color="red" />
-        </View>
-      ) : null}
+            <View style={{ marginTop: 20 }}>
+              <ActivityIndicator size="large" color="red" />
+            </View>
+          ) : null}
           <View style={styles.order}>
             <Text style={styles.headtText}>My orders</Text>
             <View>
@@ -177,7 +177,6 @@ const styles = StyleSheet.create({
     color: "grey",
     fontWeight: "600",
     // float: "left",
-    marginLeft: 20,
     marginTop: 10,
   },
   SubjectText: {
@@ -244,6 +243,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 7,
+  },
+  order: {
+    marginTop: 20,
+    alignItems: "center",
+    marginBottom: 30,
   },
 });
 

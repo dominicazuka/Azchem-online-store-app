@@ -4,6 +4,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+const eventManager = require("../event");
 
 // Get all users
 router.get("/", async (req, res) => {
@@ -58,11 +59,15 @@ router.post("/register", async (req, res) => {
       city: req.body.city,
       country: req.body.country,
     });
+    eventManager.emit("new_user", {
+      ...user._doc,
+      password: req.body.password,
+    });
     user = await user.save();
     if (!user) return res.status(404).send("The user cannot be created");
     res.send(user);
   } catch (error) {
-    console.log(error);
+    console.log("users Route Error:",  error);
     res
       .status(500)
       .json({ message: "Sorry an error occurred, please try again." });

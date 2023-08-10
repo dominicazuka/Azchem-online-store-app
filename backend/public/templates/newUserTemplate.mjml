@@ -1,0 +1,56 @@
+<mjml>
+  <mj-head>
+    <mj-title>Azchem Resources</mj-title>
+    <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500"></mj-font>
+    <mj-attributes>
+      <mj-all font-family="Montserrat, Helvetica, Arial, sans-serif"></mj-all>
+      <mj-text font-weight="400" font-size="16px" color="#000000" line-height="24px"></mj-text>
+      <mj-section padding="0px"></mj-section>
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#F2F2F2">
+    <mj-section padding="10px 0 20px 0">
+      <mj-column>
+        <mj-text align="center" color="#9B9B9B" font-size="11px">Flavors | Additives | Confectionery | Preservatives | Fats and Butter | Concentrates</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" background-repeat="repeat" padding-bottom="20px" padding-left="0px" padding-right="0px" padding-top="0px" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-divider border-color="#DE0000" border-style="solid" border-width="7px" padding-bottom="40px" padding-left="0px" padding-right="0px" padding-top="0px" padding="10px 25px" width="100%"></mj-divider>
+        <mj-image align="center" alt="logo" type="Unit" border="none" href="#" padding-bottom="0px" padding-top="0px" padding="10px 25px" src="https://azchemresources.com/wp-content/uploads/2023/07/logo_with_rc.png" target="_blank" title="" height="auto" width="110px"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section padding="20px 20px 10px 20px" background-color="#FFFFFF" background-url="https://i.ibb.co/q0SpPPX/Untitled-design.png">
+      <mj-column>
+        <mj-text align="center" font-weight="300" padding="30px 40px 10px 40px" font-size="32px" line-height="40px" color="#FFFFFF">The Right Base/Product Mix Can Make The Difference.</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section padding="10px 20px" background-color="#FFFFFF" background-url="http://nimus.de/share/tpl-card/bg.jpg">
+      <mj-column>
+        <mj-divider width="30px" border-width="3px" border-color="#9B9B9B"></mj-divider>
+      </mj-column>
+    </mj-section>
+  
+    <mj-section vertical-align="middle" background-size="cover" background-repeat="no-repeat">
+      <mj-column width="100%">
+        <mj-image src="http://nimus.de/share/tpl-card/lineshadow.png" alt="" align="center" border="none" padding="0px"></mj-image>
+        <mj-text align="center" padding="50px 40px 40px 40px" font-weight="300">{message}</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section padding="50px 0 0 0" background-color="#FFFFFF">
+      <mj-column>
+        <mj-image src="http://nimus.de/share/tpl-card/bottom.png" alt="bottom border" align="center" border="none" padding="0px"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section padding="10px 0 20px 0">
+      <mj-column>
+        <mj-social align="center" border-radius="6px" font-family="Ubuntu, Helvetica, Arial, sans-serif" font-size="13px" icon-size="30" line-height="22px" mode="horizontal" padding-bottom="0px" padding="10px 25px" text-decoration="none" text-mode="true">
+          <mj-social-element background-color="#DE0000" href="https://web.facebook.com/azchemofficial/" name="facebook-noshare" src="http://saas-templates-creator.mailjet.com/saas-templates-creator/static/img/facebook_white.png"></mj-social-element>
+          <mj-social-element background-color="#DE0000" href="https://twitter.com/Azchem_" name="twitter-noshare" src="http://saas-templates-creator.mailjet.com/saas-templates-creator/static/img/twitter_white.png"></mj-social-element>
+          <mj-social-element background-color="#DE0000" href="https://www.linkedin.com/company/71113947" name="linkedin-noshare" src="http://saas-templates-creator.mailjet.com/saas-templates-creator/static/img/linkedin_white.png"></mj-social-element>
+        </mj-social>
+        <mj-text align="center" color="#9B9B9B" font-size="11px"><a href="#" style="color: #9B9B9B;">Unsubscribe</a> <br />You are receiving this email because you registered with Azchem Resources. (<a href="https://goo.gl/maps/mk1yiMDpLfCkh4xG9">No. 8 Elegbata Street Apongbon, Lagos Island</a>) and agreed to receive emails from us regarding new features, events and special offers.<br /> <a href="#" style="color: #9B9B9B; text-decoration:none;">© Azchem Resources, All Rights Reserved.</a></mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

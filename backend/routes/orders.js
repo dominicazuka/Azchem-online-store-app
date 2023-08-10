@@ -1,8 +1,10 @@
 const { Order } = require("../models/order");
 const { OrderItem } = require("../models/order-item");
+const { User } = require("../models/user");
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const eventManager = require("../event");
 
 //Get all orders in DB
 router.get("/", async (req, res) => {
@@ -56,23 +58,36 @@ router.post("/", async (req, res) => {
         return totalPrice;
       })
     );
-
     const totalPrice = totalPrices.reduce((a, b) => a + b, 0);
-    console.log("user", req.body.user)
-
+    const user = await User.findById(req.body.user)
+    const orderSummary = await Promise.all(
+      orderItemsResolved.map(async (orderItemId) => {
+        const orderItem = await OrderItem.findById(orderItemId).populate(
+          "product",
+          "name price"
+        );
+        return orderItem; 
+      })
+    );
     let order = new Order({
       orderItems: orderItemsResolved,
       shippingAddress1: req.body.shippingAddress1,
       shippingAddress2: req.body.shippingAddress2,
       city: req.body.city,
-      zip: req.body.zip,
+      zip: req.body.zip, 
       country: req.body.country,
       phone: req.body.phone,
       status: req.body.status,
       totalPrice: totalPrice,
       user: req.body.user,
-      shippingMethod: req.body.shippingMethod,
+      shippingMethod: req.body.shippingMethod, 
       trackingNumber: req.body.trackingNumber,
+    });
+    eventManager.emit("new_order", {
+      name: user.name,
+      email: user.email,
+      orderSummary,
+      ...order._doc
     });
     order = await order.save();
     if (!order) return res.status(404).send("The order cannot be created");

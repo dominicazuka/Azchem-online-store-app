@@ -1,5 +1,11 @@
-import React from "react";
-import { View, StyleSheet, Dimensions, ScrollView } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  ScrollView,
+  ActivityIndicator,
+} from "react-native";
 import { Text, Left, Right, ListItem, Thumbnail, Body } from "native-base";
 import { connect } from "react-redux";
 import * as actions from "../../../Redux/Actions/cartActions.js";
@@ -12,10 +18,12 @@ var { height, width } = Dimensions.get("window");
 
 const Confirm = (props) => {
   const finalOrder = props.route.params;
+  const [loading, setLoading] = useState(false);
 
   const confirmOrder = () => {
-    
-    if(finalOrder === undefined){
+    setLoading(true);
+    if (finalOrder === undefined) {
+      setLoading(false);
       return Toast.show({
         topOffset: 70,
         type: "error",
@@ -28,6 +36,7 @@ const Confirm = (props) => {
       .post(`${baseURL}orders`, order)
       .then((res) => {
         if (res.status == 200 || res.status == 201) {
+          setLoading(false);
           Toast.show({
             topOffset: 70,
             type: "success",
@@ -70,7 +79,7 @@ const Confirm = (props) => {
             <Text style={styles.title}>Items:</Text>
             {finalOrder.order.order.orderItems.map((x) => {
               return (
-                <ListItem style={styles.listItem} key={x.product.name} avatar>
+                <ListItem style={styles.listItem} key={x.product._id} avatar>
                   <Left>
                     <Thumbnail source={{ uri: x.product.image }} />
                   </Left>
@@ -94,7 +103,12 @@ const Confirm = (props) => {
             })}
           </View>
         ) : null}
-        <View style={{ alignItems: "center", margin: 20 }}>
+        {loading ? (
+          <View style={{ marginTop: 20 }}>
+            <ActivityIndicator size="large" color="red" />
+          </View>
+        ) : null}
+        <View style={{ alignItems: "center", marginBottom: 50 }}>
           <Button
             containerStyle={styles.buttonContainer}
             disabledContainerStyle={{ backgroundColor: "grey" }}
